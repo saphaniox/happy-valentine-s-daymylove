@@ -165,8 +165,7 @@ function toggleMusic() {
         musicBtn.innerHTML = '<i class="fas fa-music"></i>';
         isPlaying = false;
     } else {
-        audio.play().catch(function(error) {
-            console.log('Audio playback failed:', error);
+        audio.play().catch(function() {
             alert('Click the music button again to start the music.');
         });
         musicBtn.classList.add('playing');
