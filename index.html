@@ -456,12 +456,24 @@
                 </div>
                 
                 <div class="proposal-buttons">
-                    <button class="btn-yes" onclick="handleYes()">
+                    <button class="btn-yes" onclick="showResponseOptions('yes')">
                         <i class="fas fa-heart"></i> Yes, I Will
                     </button>
                     <button class="btn-no" onclick="handleNo()">
                         <i class="fas fa-heart-circle"></i> I Need More Time
                     </button>
+                </div>
+                
+                <div id="responseOptions" style="display: none; margin-top: 30px;">
+                    <p style="font-size: 1.1rem; margin-bottom: 20px;">How would you like to send your answer?</p>
+                    <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                        <button class="btn-primary" onclick="handleYes('whatsapp')">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </button>
+                        <button class="btn-primary" onclick="handleYes('email')">
+                            <i class="fas fa-envelope"></i> Email
+                        </button>
+                    </div>
                 </div>
                 
                 <p class="proposal-note">Take your time, my love. This comes from my heart ❤️</p>
@@ -482,9 +494,14 @@
                 <div class="reason-input-container">
                     <label for="reasonText">Can you tell me what's on your mind?</label>
                     <textarea id="reasonText" rows="4" placeholder="Share your thoughts with me..."></textarea>
-                    <button class="btn-send" onclick="sendReason()">
-                        <i class="fas fa-paper-plane"></i> Send to me
-                    </button>
+                    <div style="display: flex; gap: 15px; margin-top: 20px; justify-content: center; flex-wrap: wrap;">
+                        <button class="btn-send" onclick="sendReason('whatsapp')">
+                            <i class="fab fa-whatsapp"></i> Send via WhatsApp
+                        </button>
+                        <button class="btn-send" onclick="sendReason('email')">
+                            <i class="fas fa-envelope"></i> Send via Email
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

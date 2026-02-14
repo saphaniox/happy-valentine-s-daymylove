@@ -376,25 +376,34 @@ document.addEventListener('keydown', function(e) {
 });
 
 // Proposal Response Handlers
-function handleYes() {
-    const phoneNumber = '256706564628';
+function showResponseOptions(type) {
+    const optionsDiv = document.getElementById('responseOptions');
+    optionsDiv.style.display = 'block';
+    optionsDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function handleYes(method) {
     const message = 'Yes, I will! ❤️ I want to build our future together and become the mother of your children. I love you so much! 💍';
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
     
-    const confirmation = confirm('This will send your response via WhatsApp. Are you ready to take this beautiful step together? 💕');
-    
-    if (confirmation) {
+    if (method === 'whatsapp') {
+        const phoneNumber = '256706564628';
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
         window.location.href = whatsappUrl;
+    } else if (method === 'email') {
+        const email = 'saphaniox@gmail.com';
+        const subject = encodeURIComponent('My Answer - Yes, I Will! ❤️');
+        const body = encodeURIComponent(message);
+        const mailtoUrl = `mailto:${email}?subject=${subject}&body=${body}`;
+        window.location.href = mailtoUrl;
     }
 }
 
 function handleNo() {
-    // Show the reason section
     showSection('no-response');
 }
 
-function sendReason() {
+function sendReason(method) {
     const reasonText = document.getElementById('reasonText').value.trim();
     
     if (reasonText === '') {
@@ -402,13 +411,20 @@ function sendReason() {
         return;
     }
     
-    // Redirect to WhatsApp with the reason
-    const phoneNumber = '256706564628';
     const message = `I need to think about this, Saphan. Here's why:\n\n${reasonText}`;
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
     
-    window.location.href = whatsappUrl;
+    if (method === 'whatsapp') {
+        const phoneNumber = '256706564628';
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+        window.location.href = whatsappUrl;
+    } else if (method === 'email') {
+        const email = 'saphaniox@gmail.com';
+        const subject = encodeURIComponent('My Thoughts About Your Proposal');
+        const body = encodeURIComponent(message);
+        const mailtoUrl = `mailto:${email}?subject=${subject}&body=${body}`;
+        window.location.href = mailtoUrl;
+    }
 }
 
 // Console message for Joyline
