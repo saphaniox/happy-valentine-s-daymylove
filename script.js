@@ -377,14 +377,12 @@ document.addEventListener('keydown', function(e) {
 
 // Proposal Response Handlers
 function handleYes() {
-    // Redirect to WhatsApp with "Yes I will be" message
     const phoneNumber = '256706564628';
-    const message = 'Yes I will be! ❤️ I want to be the mother of your kids and build our future together! 💍';
+    const message = 'Yes, I will! ❤️ I want to build our future together and become the mother of your children. I love you so much! 💍';
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
     
-    // Show a sweet message before redirecting
-    const confirmation = confirm('This will open WhatsApp to send your answer to Saphan. Ready to make him the happiest man? 💕');
+    const confirmation = confirm('This will send your response via WhatsApp. Are you ready to take this beautiful step together? 💕');
     
     if (confirmation) {
         window.location.href = whatsappUrl;
