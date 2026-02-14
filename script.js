@@ -383,18 +383,18 @@ function showResponseOptions(type) {
 }
 
 function handleYes(method) {
-    const message = 'Yes, I will! ❤️ I want to build our future together and become the mother of your children. I love you so much! 💍';
-    
     if (method === 'whatsapp') {
         const phoneNumber = '256706564628';
+        const message = 'Yes, I will! ❤️ I want to build our future together and become the mother of your children. I love you so much! 💍';
         const encodedMessage = encodeURIComponent(message);
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
         window.location.href = whatsappUrl;
     } else if (method === 'email') {
         const email = 'saphaniox@gmail.com';
-        const subject = encodeURIComponent('My Answer - Yes, I Will! ❤️');
-        const body = encodeURIComponent(message);
-        const mailtoUrl = `mailto:${email}?subject=${subject}&body=${body}`;
+        const subject = 'My Answer - Yes, I Will! ❤️';
+        const body = `Dear Saphan,\n\nYes, I will! ❤️\n\nI want to build our future together and become the mother of your children. I love you so much! 💍\n\nWith all my love,\nJoyline`;
+        
+        const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         window.location.href = mailtoUrl;
     }
 }
@@ -411,18 +411,18 @@ function sendReason(method) {
         return;
     }
     
-    const message = `I need to think about this, Saphan. Here's why:\n\n${reasonText}`;
-    
     if (method === 'whatsapp') {
         const phoneNumber = '256706564628';
+        const message = `I need to think about this, Saphan. Here's why:\n\n${reasonText}`;
         const encodedMessage = encodeURIComponent(message);
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
         window.location.href = whatsappUrl;
     } else if (method === 'email') {
         const email = 'saphaniox@gmail.com';
-        const subject = encodeURIComponent('My Thoughts About Your Proposal');
-        const body = encodeURIComponent(message);
-        const mailtoUrl = `mailto:${email}?subject=${subject}&body=${body}`;
+        const subject = 'My Thoughts About Your Proposal';
+        const body = `Dear Saphan,\n\nI need to think about this. Here's why:\n\n${reasonText}\n\nWith love,\nJoyline`;
+        
+        const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         window.location.href = mailtoUrl;
     }
 }
